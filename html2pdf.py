@@ -35,20 +35,21 @@ class TransferData:
 # Main program
 if __name__ == "__main__":
     
+    user_name = "Reem AlRantisi"
     # load the file
-    with open("template.html") as inf:
-        html = inf.read()
-        soup = bs4.BeautifulSoup(html)
-        # print(soup)
-        written = soup.find(string=re.compile("Written by"))
-        print(written)
-        name = written.find_next("p")  
-        print(name)
-        name.extract()
-        #print(soup)
-    source_html = soup.prettify()
-    output_filename = "test.pdf"
+    def modifyHtml(user_name) :
+        with open("template.html") as inf:
+            html = inf.read()
+            soup = bs4.BeautifulSoup(html)
+            name = soup.find_all(string=re.compile(user_name))
+            print(name)
+            for n in name :
+                n.extract()
+        source_html = soup.prettify()
+        return source_html
 
+    source_html = modifyHtml(user_name)
+    output_filename = "test.pdf"
     pisa.showLogging()
     convert_html_to_pdf(source_html, output_filename)
     
