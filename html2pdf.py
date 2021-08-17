@@ -54,7 +54,7 @@ if __name__ == "__main__":
     convert_html_to_pdf(source_html, output_filename)
     
     # upload to dropbox 
-    access_token = '3frTW7nRcYEAAAAAAAAAAebk3A4KAbarudYTc1DLEEUDJuYq-K4HEj2su-cNsA2q'
+    access_token = '*************************'
     transferData = TransferData(access_token)
     file_to = '/htmltopdf/test.pdf'  # The full path to upload the file to, including the file name
     transferData.upload_file(output_filename, file_to)
